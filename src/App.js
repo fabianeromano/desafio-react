@@ -1,23 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from "./components/navBar/NavBar";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="">
+      <Header />
+      <h1 id="catalogo" className="text-3xl text-center font-bold underline pt-8 h-screen bg-rose-200">
+      Catalogo
+    </h1>
+    <footer  className="bg-black">
+      <div id="contactanos" className="text-white flex justify-center items-center">Redes Sociales</div>
+      <div className=" text-white flex justify-center items-center h-20">Created by: Fabian Romano</div>
+    </footer>
     </div>
   );
 }
