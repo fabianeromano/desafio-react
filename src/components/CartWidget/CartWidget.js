@@ -1,11 +1,12 @@
+import CartIcon from "../Icons/CartIcon";
 
-export default function CartWidget({count}) {
+export default function CartWidget({cart}) {
 
     return (
         <div className="flex items-center justify-center">
-            <img className="w-10 h-10"  src="/img/Cart.png" alt="Imagen Cart"/>
-            <span className="flex items-center justify-center w-8 h-8 bg-green-400 rounded-full">
-             <p className="text-2xl font-bold text-white ">{count}</p>
+            <CartIcon />
+            <span className="flex items-center justify-center w-8 h-8 bg-gray-600 rounded-full">
+             <p className="text-2xl font-bold text-white ">{cart}</p>
             </span>
         </div>
     )

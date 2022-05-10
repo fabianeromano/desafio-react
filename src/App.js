@@ -5,8 +5,8 @@ import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
-    <div className="">
-       <NavBar />
+    <div className="app">
+         <NavBar />
         <ItemListContainer greeting={"Fabian Romano"} />
         <Footer />
     </div>
