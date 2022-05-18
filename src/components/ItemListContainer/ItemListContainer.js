@@ -21,7 +21,7 @@ export default function ItemListContainer({greeting}){
         // eslint-disable-next-line
     },[])
     return(
-        <div className="bg-violet-500 flex flex-col justify-start items-center">
+        <div className="flex flex-col items-center justify-start bg-violet-500">
             <p className="text-xl font-semibold">Hola Como Estas: <span className="text-2xl font-bold text-green-400 cursor-pointer">{greeting}</span></p>
             <Card/>
             <div className="">
