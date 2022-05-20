@@ -1,31 +1,27 @@
 import React from "react"
 import ItemDetail from "../ItemDetail/ItemDetail"
 import { productos } from "../data/productos";
+import Footer from "../../components/Footer/Footer"
 
-export default function ItemDetailContainer(){
+export default function ItemDetailContainer({productId}){
 
 
-    const [item, setItem] = React.useState([])
+    const [item, setItem] = React.useState(null)
 
-    const getItem = ()=> new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve(productos[3])
-        }, 2000)
-    })
-    getItem().then((result)=>{
-        console.log(result)
-    }
-    )
+    const getItem = ()=> 
+           (productos.find(item => item.id === +productId))
+       
+    
     React.useEffect(()=>{
-        getItem().then((res)=>setItem(res))
+        setItem(getItem())
         // eslint-disable-next-line
-    },[])
+    },[productId])
 
 
     return(
-<div className="flex justify-center bg-violet-500">
-
+<div className="">
     <ItemDetail item={item} />
+    <Footer />
 </div>
 
     )

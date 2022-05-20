@@ -16,7 +16,7 @@ const onDecrease=()=>{
 
     const StockButton=({handleOnClick, text})=>{
         return(
-               <button onClick={handleOnClick} className="text-white bg-gray-800 text-lg px-2">
+               <button onClick={handleOnClick} className="w-10 h-10 text-3xl text-white bg-gray-800 rounded-full hover:text-gray-800 hover:bg-white">
             {text}
         </button>
         )   
@@ -24,15 +24,15 @@ const onDecrease=()=>{
 
     const AddButton=()=>{
         return(
-            <button className="text-white rounded-lg bg-gray-800 text-lg px-2">Agregar al carrito</button>
+            <button className="px-4 py-2 text-3xl tracking-widest text-white bg-gray-800 rounded-full hover:bg-white hover:text-gray-800 ">Agregar al carrito</button>
         )
     }
 
     return(
-        <div className="Add-button-container flex flex-col items-center justify-center">
+        <div className="flex flex-col items-center justify-center Add-button-container">
             <div className="flex items-center justify-center pb-1">
                 <StockButton text="-" handleOnClick={onDecrease}/>
-                 <div className="text-xl font-bold px-2">{count}</div>
+                 <div className="mx-2 text-2xl font-bold">{count}</div>
                 <StockButton text="+" handleOnClick={onAdd}/>
             </div>
             <AddButton/>
