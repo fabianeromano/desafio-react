@@ -1,7 +1,7 @@
 import React from "react"
 import { useNavigate } from "react-router-dom"
 
-export default function ItemCount({count, onAdd, onDecrease}){
+export default function ItemCount({count, onAdd, onDecrease, onBuyItem}){
 
     const navigate = useNavigate();
     
@@ -14,8 +14,12 @@ export default function ItemCount({count, onAdd, onDecrease}){
     }
 
     const BuyButton = () =>{
+        const handleBuyClick = () => {
+            onBuyItem()
+            navigate(`/cart`)
+        }
         return (
-            <button className="px-4 py-2 text-3xl tracking-widest text-white bg-gray-800 rounded-full hover:bg-white hover:text-gray-800" onClick={()=>navigate(`/cart`)}>Comprar</button>
+            <button className="px-4 py-2 text-3xl tracking-widest text-white bg-gray-800 rounded-full hover:bg-white hover:text-gray-800" onClick={handleBuyClick}>Comprar</button>
         )
     }
 

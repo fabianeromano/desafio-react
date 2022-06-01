@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
+import { CartContext } from '../../context/CartContext'
 import ItemCount from "../ItemCount/ItemCount"
 
 export default function ItemDetail({ item }) {
@@ -37,6 +38,8 @@ export default function ItemDetail({ item }) {
     }
     const [count, setCount]= useState(1)
 
+    const {addItem} = useContext(CartContext)
+
     const onAdd = (quantityToAdd) => {
         if(count < item?.stock){
             setCount(count + quantityToAdd)
@@ -49,6 +52,11 @@ export default function ItemDetail({ item }) {
         }
     }
 
+    const onBuyItem = () => {
+        addItem(item, count)
+        
+    }
+
     return (
         <div className="flex" >
             <div className="w-2/3 ">
@@ -59,7 +67,7 @@ export default function ItemDetail({ item }) {
                 <PrecioCard />
                 <Description />
                 <StockCard />
-                <ItemCount count={count} onAdd={onAdd} onDecrease={onDecrease} />
+                <ItemCount count={count} onAdd={onAdd} onDecrease={onDecrease} onBuyItem={onBuyItem}/>
             </div>
         </div>
     )
