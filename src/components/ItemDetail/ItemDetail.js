@@ -1,8 +1,10 @@
 import { useContext, useState } from 'react'
+import { useNavigate } from "react-router-dom"
 import { CartContext } from '../../context/CartContext'
 import ItemCount from "../ItemCount/ItemCount"
 
 export default function ItemDetail({ item }) {
+    const navigate = useNavigate();
     const ImgCard = () => {
         return (
             <div className="flex items-center justify-center">
@@ -37,6 +39,7 @@ export default function ItemDetail({ item }) {
         )
     }
     const [count, setCount]= useState(1)
+    const [finishBuy, setFinishBuy] = useState(false)
 
     const {addItem} = useContext(CartContext)
 
@@ -53,8 +56,11 @@ export default function ItemDetail({ item }) {
     }
 
     const onBuyItem = () => {
+        setFinishBuy(true)
+    }
+    const finishBuyClick = () => {
         addItem(item, count)
-        
+        navigate(`/cart`)
     }
 
     return (
@@ -67,7 +73,11 @@ export default function ItemDetail({ item }) {
                 <PrecioCard />
                 <Description />
                 <StockCard />
-                <ItemCount count={count} onAdd={onAdd} onDecrease={onDecrease} onBuyItem={onBuyItem}/>
+                {finishBuy ? 
+                    <button 
+                        className='px-4 py-2 text-3xl tracking-widest text-white bg-gray-800 rounded-full hover:bg-white hover:text-gray-800'
+                        onClick={finishBuyClick}>Terminar mi compra</button> : 
+                    <ItemCount count={count} onAdd={onAdd} onDecrease={onDecrease} onBuyItem={onBuyItem}/>}
             </div>
         </div>
     )
