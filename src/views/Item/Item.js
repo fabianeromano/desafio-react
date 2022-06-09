@@ -3,15 +3,15 @@ import ItemDetailContainer from "../../components/ItemDetailContainer/ItemDetail
 import Header from "../../components/Header/Header";
 import NavCategory from "../../components/NavCategory/NavCategory";
 
-export default function Detail(){
+export default function Item(){
 
-    const {productId} = useParams()
+    const {id} = useParams()
 
     return (
         <>
             <Header />
             <NavCategory />  
-            <ItemDetailContainer productId={+productId} />
+            <ItemDetailContainer id={id} />
         </>
     )
 }

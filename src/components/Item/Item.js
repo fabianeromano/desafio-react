@@ -23,7 +23,7 @@ const TitleCard=()=>{
              
         <ImgCard/>
         <TitleCard/>
-        <button className ="px-4 py-1 my-2 text-xl font-semibold text-white rounded-2xl bg-slate-600" onClick={()=>navigate(`/Detail/${producto.id}`)}>Ver Detalle</button>
+        <button className ="px-4 py-1 my-2 text-xl font-semibold text-white rounded-2xl bg-slate-600" onClick={()=>navigate(`/item/${producto.id}`)}>Ver Detalle</button>
         </div>
 
     )

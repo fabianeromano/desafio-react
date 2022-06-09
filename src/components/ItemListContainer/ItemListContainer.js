@@ -1,19 +1,29 @@
 import React from "react"
 import ItemList from "../ItemList/ItemList"
-import { productos } from "../data/productos";
-
+import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore'
 
 export default function ItemListContainer({greeting, categoryId}){
     const [listaProd, setListaProd] = React.useState([]);
 
     React.useEffect(() => {
-        
-        if(categoryId){
-          setListaProd(productos.filter(listaProd => listaProd.category_id === +categoryId));
-        }
-        else{
-          setListaProd(productos);
-        }
+        const db = getFirestore();        
+        const q = categoryId ? query(
+          collection(db, 'items'),
+          where('category', '==', categoryId)
+        ) : query(
+          collection(db, 'items')
+        )
+        getDocs(q).then((snapshot) => {
+          if(snapshot.size === 0){
+            console.log('No results')
+          }
+          setListaProd(
+            snapshot.docs.map((doc) => ({
+              id: doc.id,
+              ...doc.data()
+            }))
+          )
+        })
        
       },[categoryId])
 
