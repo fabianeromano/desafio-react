@@ -5,7 +5,7 @@ import Cart from "./views/Cart/Cart";
 import Category from "./views/Category/Category";
 import Item from "./views/Item/Item";
 import CartProvider from "./context/CartContext";
-
+import Order from "./views/Order/Order";
 
 function App() {
   return (
@@ -18,6 +18,7 @@ function App() {
             <Route exact path="/category" element={<Category />} />
             <Route exact path="/category/:categoryId" element={<Category />} />
             <Route exact path="/item/:id" element={<Item />} />
+            <Route exact path="/order/:id" element={<Order />} />
           </Routes>
         </BrowserRouter>
       </CartProvider>

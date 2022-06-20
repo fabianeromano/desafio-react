@@ -9,7 +9,6 @@ export default function ItemDetailContainer({id}){
 
     React.useEffect(()=>{
         const db = getFirestore();
-        console.log(id)
 
         const itemRef = doc(db, 'items', id)
         getDoc(itemRef).then((snapshot) => {
