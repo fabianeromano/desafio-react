@@ -1,6 +1,5 @@
 import React from "react"
 import ItemDetail from "../ItemDetail/ItemDetail"
-//import { productos } from "../data/productos";
 import Footer from "../../components/Footer/Footer"
 import { doc, getDoc, getFirestore } from 'firebase/firestore'
 

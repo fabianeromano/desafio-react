@@ -29,9 +29,7 @@ export default function ItemListContainer({greeting, categoryId}){
 
     return(
         <div className="flex flex-col items-center justify-start bg-violet-500">
-            <p className="text-xl font-semibold">Hola Como Estas: <span className="text-2xl font-bold text-green-400 cursor-pointer">{greeting}</span></p>
-
-            <div className="">
+            <div>
             <ItemList ListaProductos={listaProd}/>
             </div>
         </div>

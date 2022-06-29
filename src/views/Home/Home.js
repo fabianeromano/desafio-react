@@ -7,7 +7,7 @@ export default function Home() {
     return (
         <div>
             <Header />
-            <ItemListContainer greeting={"Fabian Romano"} />
+            <ItemListContainer />
             <Footer />
         </div>
     );

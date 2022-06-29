@@ -5,7 +5,7 @@ export default function ItemList({ListaProductos}) {
 
     return (
         <div>
-            <h3 className="text-center text-4xl font-bold">Lista de Productos</h3>
+            <h3 className="text-4xl font-bold text-center">Nuestros Productos</h3>
             <div className="flex ">
             {ListaProductos.map((producto) => 
                 <Item producto={producto} key={producto.id} />

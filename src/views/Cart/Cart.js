@@ -35,17 +35,21 @@ export default function Cart (){
          <div> 
             <Header />
             <NavCategory />  
-            <p>No hay items</p>
-            <button onClick={() => navigate('/')}>Volver al catálogo</button>
+            <div className="flex flex-col items-center justify-center">
+                 <p className="text-2xl font-bold">No hay items</p>
+                 <button onClick={() => navigate('/')} className="px-1 text-white rounded-md bg-slate-600">Volver al catálogo</button>
+            </div>
+                
          </div>
         )
     return (
          <div> 
             <Header />
-            <NavCategory />  
-            <table>
-                <thead>
-                    <tr>
+            <NavCategory />
+            <section className="flex flex-col items-center justify-center">
+            <table className="w-1/2 mx-auto table-auto my-14" >
+                <thead className="bg-slate-200">
+                    <tr className="text-center">
                         <th>Item</th>
                         <th>Cantidad</th>
                         <th>Precio</th>
@@ -53,19 +57,19 @@ export default function Cart (){
                         <th>Acción</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody className="text-center">
                 {cart.map(item=>(
                     <tr key={item.id}>
                         <td>{item.title}</td>
                         <td>{item.quantity}</td>
                         <td>$ {item.price}</td>
                         <td>$ {item.quantity * item.price}</td>
-                        <td><button onClick={() => removeItem(item.id)}>Eliminar</button></td>
+                        <td><button onClick={() => removeItem(item.id)} className="px-1 bg-red-400 rounded-md">Eliminar</button></td>
                     </tr>
                 ))}
                 </tbody>
                 <tfoot>
-                    <tr>
+                    <tr className="text-center bg-slate-200">
                         <td>TOTAL</td>
                         <td>{cart.reduce((acc, item) =>  acc + (item.quantity),0)}</td>
                         <td></td>
@@ -73,13 +77,16 @@ export default function Cart (){
                     </tr>
                 </tfoot>
             </table>
-            <label htmlFor="name">Nombre</label>
-            <input name='name' type="text" placeholder="Ingrese su nombre" value={name} onChange={(e) => setName(e.target.value)} />
-            <label htmlFor="phone">Teléfono</label>
-            <input name='phone' type="tel" placeholder="Ingrese su teléfono" value={phone} onChange={(e) => setPhone(e.target.value)} pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"/>
-            <label htmlFor="email">Email</label>
-            <input name='email' type="email" placeholder="Ingrese su email" value={email} onChange={(e) => setEmail(e.target.value)} />
-            <button disabled={name === '' && email === '' && phone === ''} onClick={sendOrder}>Finalizar Compra</button>
+             <div className="mx-auto text-lg font-semibold">
+                <label htmlFor="name">Nombre: </label>
+                <input name='name' type="text" placeholder="Ingrese su nombre" value={name} onChange={(e) => setName(e.target.value)} />
+                <label htmlFor="phone">Teléfono: </label>
+                <input name='phone' type="tel" placeholder="Ingrese su teléfono" value={phone} onChange={(e) => setPhone(e.target.value)} pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"/>
+                <label htmlFor="email">Email: </label>
+                <input name='email' type="email" placeholder="Ingrese su email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                <button disabled={name === '' && email === '' && phone === ''} onClick={sendOrder} className="px-1 text-white rounded-md bg-slate-600">Finalizar Compra</button>
+             </div>
+            </section>
          </div>
     )
 }
